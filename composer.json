@@ -1,0 +1,46 @@
+{
+	"name": "command/wordpress-starter",
+	"description": "WordPress Starter",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		},
+		{
+			"type": "package",
+			"package": {
+				"name": "advanced-custom-fields/advanced-custom-fields-pro",
+				"version": "5.9.3",
+				"type": "wordpress-plugin",
+				"dist": {
+					"type": "zip",
+					"url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%PLUGIN_ACF_KEY}&t={%VERSION}"
+				},
+				"require": {
+					"composer/installers": "^1.9",
+					"ffraenz/private-composer-installer": "^5.0"
+				}
+			}
+		}
+	],
+	"config": {
+		"vendor-dir": "htdocs/vendor"
+	},
+	"require": {
+		"wpackagist-plugin/wordpress-seo": "^15.0",
+		"johnpbloch/wordpress-core-installer": "^2.0",
+		"johnpbloch/wordpress": "^5.6.0",
+		"advanced-custom-fields/advanced-custom-fields-pro": "*"
+	},
+	"extra": {
+		"installer-paths": {
+			"htdocs/wp-content/plugins/{$name}/": [
+				"type:wordpress-plugin"
+			],
+			"htdocs/wp-content/themes/{$name}/": [
+				"type:wordpress-theme"
+			]
+		},
+		"wordpress-install-dir": "htdocs/wordpress"
+	}
+}
